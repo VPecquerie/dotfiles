@@ -1,0 +1,69 @@
+# always use the interactive mode (borring but it can save our life...)
+alias mv='mv -i'
+alias ln='ln -i'
+
+# always use color :
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ls='ls --color'
+
+# update on one command
+alias update='sudo apt-get update && sudo apt-get upgrade'
+if [ $UID -ne 0 ]; then ## If you are not root...
+  alias apt='sudo apt'
+  alias apt-get='sudo apt-get'
+  alias reboot='sudo reboot'
+  alias update='sudo apt-get upgrade'
+fi
+
+# System tools
+alias ifconfig='sudo ifconfig'
+alias iftop='sudo iftop -i eth0'
+alias iotop='sudo iotop'
+alias htop='sudo htop'
+alias iptables='sudo iptables'
+
+## Get system info ##
+alias meminfo='free -m -l -t'
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+alias cpuinfo='lscpu'
+alias ports='netstat -tulanp'
+alias ping='ping -c 5'
+alias fastping='ping -c 100 -s.2'
+
+## Editors
+alias vi='vim'
+alias svi='sudo vi'
+alias svim='sudo vim'
+alias vis='vim "+set si"'
+alias edit='vim'
+alias snano='sudo nano'
+
+## Always use the most used flags :
+alias bc='bc -l'
+alias ls='ls -Gh'
+alias ll='ls -lsat'
+alias df='df -H'
+alias du='du -ch'
+
+## Path and time manipulation
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+## Others aliases
+alias service="sudo service"
+alias systemctl="sudo systemctl"
+alias tranquille='fuck'
+alias reset="source ~/.zshrc"
+alias reload="reset"
+alias docekr="docker"
+alias doker="docker"
+alias cp="rsync -ah --progress"
+alias gpg="gpg2"
