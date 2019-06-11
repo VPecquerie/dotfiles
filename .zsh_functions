@@ -1,0 +1,16 @@
+#!/bin/zsh
+function ban_ip() {
+    if [ -z "$1"]; then
+        iptables -A INPUT -s $1 -j DROP
+    else
+        echo "Usage: ban_ip IP (Ex: 127.0.0.1)"
+    fi
+} 
+
+function unban_ip() {
+    if [ -z "$1"]; then
+        iptables -D INPUT -s $1 -j DROP
+    else 
+        echo "Usage: unban_ip IP (Ex: 127.0.0.1)"
+    fi
+} 

@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # always use the interactive mode (borring but it can save our life...)
 alias mv='mv -i'
 alias ln='ln -i'

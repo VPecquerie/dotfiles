@@ -418,6 +418,7 @@ autoload -Uz compinit && compinit -i
 
 # Source functions and aliases.
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+[[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
 [[ -f ~/.zsh_variables ]] && source ~/.zsh_variables
 
 if [[ $OSTYPE = (darwin)* ]]; then
