@@ -37,6 +37,7 @@ fi
 if [ ! -z "$(command -v zsh)" ] 
 then 
     ln -sf $working_dir/.zsh_aliases ~/.zsh_aliases
+    ln -sf $working_dir/.zsh_functions ~/.zsh_functions
     ln -sf $working_dir/.zshrc ~/.zshrc
     echo "export DOTFILES_DIR=\"$(pwd)\"" >> ~/.zshrc.local
     # We don't replace this file.
