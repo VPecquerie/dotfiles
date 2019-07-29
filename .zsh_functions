@@ -14,3 +14,12 @@ function unban_ip() {
         echo "Usage: unban_ip IP (Ex: 127.0.0.1)"
     fi
 } 
+
+function update_dotfiles() {
+    cd $DOTFILES_DIR
+    git stash > /dev/null
+    git pull 
+    git stash pop
+    ./install.sh
+    reload
+}
