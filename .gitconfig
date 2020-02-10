@@ -6,9 +6,6 @@
 	name = Vincent PECQUERIE
 	email = contact@vincent-p.fr
 	signingkey = 2406A932E01120B634BFF20BEDEBAFD0ACAA7880 
-    
-[commit]
-	template = ~/.stCommitMsg
 
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
