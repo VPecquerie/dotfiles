@@ -2,3 +2,4 @@
 \.vim/bundle/
 # i3 merged file :
 .config/i3/config 
+.ssh/
