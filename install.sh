@@ -40,21 +40,21 @@ then
     ln -sf $working_dir/.zshrc ~/.zshrc
     echo "export DOTFILES_DIR=\"$(pwd)\"" >> ~/.zshrc.local
     # We don't replace this file.
-    if [ ! -f ~/.zshrc_variables ]; then 
-        cp .zshrc_variables.dist .zshrc_variables
-        ln -sf $working_dir/.zshrc_variables ~/.zshrc_variables
+    if [ ! -f ~/.zsh_variables ]; then 
+        cp .zsh_variables.dist .zsh_variables
+        ln -sf $working_dir/.zsh_variables ~/.zsh_variables
     fi
 
     # But produce a warning if current file has fewer lines
-    numberSource=$(wc -l .zshrc_variables.dist | awk '{print $1}')
-    numberTarget=$(wc -l ~/.zshrc_variables | awk '{print $1}')
+    numberSource=$(wc -l .zsh_variables.dist | awk '{print $1}')
+    numberTarget=$(wc -l ~/.zsh_variables | awk '{print $1}')
     
     if [ "$numberSource" != "$numberTarget" ]; then 
-        echo "Some differences are present in your .zshrc_variables file."
+        echo "Some differences are present in your .zsh_variables file."
         echo "Please check it, and upgrade it."
-        diff $working_dir/.zshrc_variables.dist ~/.zshrc_variables
+        diff $working_dir/.zsh_variables.dist ~/.zsh_variables
         read
-        vim ~/.zshrc_variables
+        vim ~/.zsh_variables
     fi
 
 fi
