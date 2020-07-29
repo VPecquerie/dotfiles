@@ -191,16 +191,16 @@ zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
 zplug "plugins/gpg-agent", from:oh-my-zsh, if:"which gpg-agent"
 
-zplug "plugins/git",    from:oh-my-zsh, if:"which git"
-zplug "plugins/go",     from:oh-my-zsh, if:"which go"
-zplug "plugins/golang", from:oh-my-zsh, if:"which go"
-zplug "plugins/nmap",   from:oh-my-zsh, if:"which nmap"
-zplug "plugins/sudo",   from:oh-my-zsh, if:"which sudo"
-zplug "plugins/tmux",   from:oh-my-zsh, if:"which tmux"
-zplug "plugins/docker", from:oh-my-zsh, if:"which docker"
-zplug "plugins/httpie", from:oh-my-zsh, if:"which http"
-zplug "plugins/npm", 	from:oh-my-zsh, if:"which npm"
-
+zplug "plugins/git",        from:oh-my-zsh, if:"which git"
+zplug "plugins/go",         from:oh-my-zsh, if:"which go"
+zplug "plugins/golang",     from:oh-my-zsh, if:"which go"
+zplug "plugins/nmap",       from:oh-my-zsh, if:"which nmap"
+zplug "plugins/sudo",       from:oh-my-zsh, if:"which sudo"
+zplug "plugins/tmux",       from:oh-my-zsh, if:"which tmux"
+zplug "plugins/docker",     from:oh-my-zsh, if:"which docker"
+zplug "plugins/httpie",     from:oh-my-zsh, if:"which http"
+zplug "plugins/npm", 	    from:oh-my-zsh, if:"which npm"
+zplug "lukechilds/zsh-nvm",  if:"which nvm"
 # Supports oh-my-zsh plugins and the like
 if [[ $OSTYPE = (linux)* ]]; then
 	zplug "plugins/archlinux", from:oh-my-zsh, if:"which pacman"
