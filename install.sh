@@ -3,6 +3,7 @@ mkdir -p ~/.ssh
 working_dir=$(pwd)
 
 ln -sf $working_dir/.ssh/config ~/.ssh/config
+ln -sf $working_dir/.hushlogin ~/.hushlogin
 
 if [ -d ~/scripts ]; then 
     rm -rf ~/scripts
