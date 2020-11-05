@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " The status bar
 Plugin 'vim-airline/vim-airline' 
+Plugin 'vim-airline/vim-airline-themes'
 " A wrapper for git 
 Plugin 'tpope/vim-fugitive'
 " Emmet support
@@ -27,7 +28,6 @@ filetype plugin indent on    " required
 set shell=/bin/zsh
 set background=dark
 colorscheme one
-
 syntax on
 
 filetype plugin indent on
@@ -38,4 +38,4 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-let g:airline_theme='one'
+let g:airline_theme='onedark'

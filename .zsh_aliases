@@ -1,5 +1,33 @@
 #!/bin/zsh
 
+# Set editor preference to nvim if available.
+if which nvim &>/dev/null; then
+	alias vim='() { $(whence -p nvim) $@ }'
+else
+	alias vim='() { $(whence -p vim) $@ }'
+fi
+
+# Generic command adaptations.
+alias grep='() { $(whence -p grep) --color=auto $@ }'
+alias egrep='() { $(whence -p egrep) --color=auto $@ }'
+
+# Directory management
+alias ls='colorls'
+alias la='ls -a'
+alias ll='ls -lta'
+alias d='dirs -v'
+alias 1='pu'
+alias 2='pu -2'
+alias 3='pu -3'
+alias 4='pu -4'
+alias 5='pu -5'
+alias 6='pu -6'
+alias 7='pu -7'
+alias 8='pu -8'
+alias 9='pu -9'
+alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
+alias po='() { popd &> /dev/null; dirs -v; }'
+
 # always use the interactive mode (borring but it can save our life...)
 alias mv='mv -i'
 alias ln='ln -i'
@@ -8,7 +36,6 @@ alias ln='ln -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias ls='ls --color'
 
 # update on one command
 alias update='sudo apt-get update && sudo apt-get upgrade'
@@ -18,6 +45,7 @@ if [ $UID -ne 0 ]; then ## If you are not root...
   alias reboot='sudo reboot'
   alias update='sudo apt-get upgrade'
 fi
+alias yay="yay --noconfirm"
 
 # System tools
 alias ifconfig='sudo ifconfig'
@@ -48,8 +76,6 @@ alias snano='sudo nano'
 
 ## Always use the most used flags :
 alias bc='bc -l'
-alias ls='ls -Gh'
-alias ll='ls -lsat'
 alias df='df -H'
 alias du='du -ch'
 

@@ -36,28 +36,26 @@ fi
 # ZSH Configuration.
 if [ ! -z "$(command -v zsh)" ] 
 then 
+    # install oh-my-zsh:
+    if [ ! -d "$HOME/.oh-my-zsh" ]
+    then 
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+    
+    if [ ! -d "$HOME/.zplug" ]
+    then 
+        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    fi
+
+    if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]
+    then
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    fi
+
     ln -sf $working_dir/.zsh_aliases ~/.zsh_aliases
     ln -sf $working_dir/.zsh_functions ~/.zsh_functions
     ln -sf $working_dir/.zshrc ~/.zshrc
-    echo "export DOTFILES_DIR=\"$(pwd)\"" >> ~/.zshrc.local
-    # We don't replace this file.
-    if [ ! -f ~/.zsh_variables ]; then 
-        cp .zsh_variables.dist .zsh_variables
-        ln -sf $working_dir/.zsh_variables ~/.zsh_variables
-    fi
-
-    # But produce a warning if current file has fewer lines
-    numberSource=$(wc -l .zsh_variables.dist | awk '{print $1}')
-    numberTarget=$(wc -l ~/.zsh_variables | awk '{print $1}')
-    
-    if [ "$numberSource" != "$numberTarget" ]; then 
-        echo "Some differences are present in your .zsh_variables file."
-        echo "Please check it, and upgrade it."
-        diff $working_dir/.zsh_variables.dist ~/.zsh_variables
-        read
-        vim ~/.zsh_variables
-    fi
-
+    ln -sf $working_dir/.zsh_variables ~/.zsh_variables
 fi
 
 # PolyBar Configuration.
@@ -78,5 +76,14 @@ then
     ln -sf $working_dir/.config/i3 ~/.config/i3
     ~/scripts/generate_i3_config.sh
 fi
+
+if [ ! -z "$(command -v tmux)"]
+then 
+    if [ -d ~/.tmux ]; then
+        git clone https://github.com/gpakosz/.tmux.git
+    fi
+    ln -sf $working_dir/.tmux.conf.local ~/.tmux.conf.local
+fi
+
 
 echo "done!"
