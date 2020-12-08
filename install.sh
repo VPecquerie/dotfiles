@@ -77,7 +77,7 @@ then
     ~/scripts/generate_i3_config.sh
 fi
 
-if [ ! -z "$(command -v tmux)"]
+if [ ! -z "$(command -v tmux)" ]
 then 
     if [ -d ~/.tmux ]; then
         git clone https://github.com/gpakosz/.tmux.git
